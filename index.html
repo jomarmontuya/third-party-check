@@ -1,0 +1,17 @@
+<!-- cookie-checker.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        document.cookie = '3pc_test=1; SameSite=None; Secure';
+        setTimeout(() => {
+            const success = document.cookie.includes('3pc_test=1');
+            window.parent.postMessage(success ? '3pcSupported' : '3pcUnsupported', '*');
+        }, 100);
+    </script>
+</head>
+<body>
+    <h1>3rd Party Cookie Checker for JBREC</h1>
+    <p>This page is used to check if the browser supports 3rd party cookies.</p>
+</body>
+</html>
